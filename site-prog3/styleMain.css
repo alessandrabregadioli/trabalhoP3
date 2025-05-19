@@ -1,0 +1,112 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #E0B669;
+  }
+  .navbar {
+    background-color: #0e5b53;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    font-family: 'Anton', sans-serif;
+  }
+  
+  .logo {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.5rem;
+    color: #fff;
+    text-shadow: 1px 1px #000;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;         
+    gap: 2rem;             
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: #fffccf;
+    font-weight: bold;
+  }
+  
+  
+  .hero {
+    background-image: url("img/hero/fundo.png");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;;
+  }
+
+  .COWABUNGA {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .titulos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  .top-title {
+    font-family: 'Anton', sans-serif;
+    font-weight: 100;
+    text-transform: uppercase;
+    color: #EA580C;
+    text-shadow: 5px 5px 0 #144E49;
+    font-size: 7rem;
+    letter-spacing: 6px;
+    margin-bottom: 0;
+    line-height: 1;
+  }
+  
+  .main-title {
+    font-family: 'Pacifico', cursive;
+    color: #EA580C;
+    text-shadow: 4px 4px 0 #144E49;
+    font-size: 5rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    transform: rotate(-8deg);
+    text-decoration: underline;
+  }
+  
+  .burgue-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+  }
+  
+  .logo-burgue {
+    max-width: 300px; 
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(4px 4px 0 #144E49);
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .slogan{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Anton', sans-serif;
+    font-weight: 100;
+    text-transform: uppercase;
+    color: #144E49;
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  
