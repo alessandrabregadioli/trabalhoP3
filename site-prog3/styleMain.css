@@ -2,7 +2,7 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    background-color: #E0B669;
+    background-color: #faeed7;
   }
   .navbar {
     background-color: #0e5b53;
@@ -123,4 +123,114 @@ body, html {
     margin: 0;
   }
 
-  
+  /*destaques*/
+
+   .destaques {
+    background-image: url("img/hero/fDestaques.png");
+    height: 100vh;;
+  } 
+
+    #Tdestaque{
+    font-size: 3rem;
+    padding-top: 3rem;
+  }
+
+  .carrossel-container {
+  position: relative;
+  overflow: hidden;
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carrossel {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  list-style: none;
+  padding: 1rem 0;
+  margin: 0;
+}
+
+.carrossel::-webkit-scrollbar {
+  display: none; 
+}
+
+.card {
+  background-color: #fefce8;
+  color: #144E49;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  width: 25rem;
+  height: 23rem;
+  flex: 0 0 auto;
+  text-align: center;
+  border: 4px solid #0f766e;
+  transition: transform 0.2s ease-in-out;
+
+}
+
+.card:hover {
+  transform: scale(1.05); 
+}
+
+.card img {
+  width: 0.2rem;
+  height: 0.2rem;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  border: 3px solid #ea580c;
+}
+
+.card h3 {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.5rem;
+  color: #ea580c;
+  margin: 0.5rem 0;
+}
+
+.card p {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #144E49;
+}
+
+.adicionar {
+  background-color: #f97316;
+  border: 2px solid #0f766e;
+  color: white;
+  padding: 0.5rem 1.2rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-family: 'Anton', sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.seta {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #facc15;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 2;
+  color: #0e5b53;
+}
+
+.seta.esquerda {
+  left: 0;
+}
+
+.seta.direita {
+  right: 0;
+}
