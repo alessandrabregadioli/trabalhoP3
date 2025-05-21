@@ -6,19 +6,28 @@ body, html {
   }
   .navbar {
     background-color: #0e5b53;
-    color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
     font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
   }
   
+  .img-logo {
+    max-width: 50px; 
+    width: 100%;
+    height: auto;
+  }
+
   .logo {
     font-family: 'Pacifico', cursive;
+    text-transform: lowercase;
     font-size: 1.5rem;
-    color: #fff;
-    text-shadow: 1px 1px #000;
+    color: #F2E9BD;
+    display: flex;
+    align-items: center; 
+    gap: 0.5rem; 
   }
 
   .nav-links {
@@ -28,12 +37,16 @@ body, html {
     margin: 0;
     padding: 0;
     align-items: center;
+    justify-content: center;
+    flex: 1;
   }
   
   .nav-links li a {
     text-decoration: none;
-    color: #fffccf;
-    font-weight: bold;
+    color: #F2E9BD;
+    font-weight:normal;
+    font-size: 1rem;
+    letter-spacing: 2px;
   }
   
   
@@ -65,6 +78,7 @@ body, html {
     text-shadow: 5px 5px 0 #144E49;
     font-size: 7rem;
     letter-spacing: 6px;
+    margin-top: 2vh ;
     margin-bottom: 0;
     line-height: 1;
   }
