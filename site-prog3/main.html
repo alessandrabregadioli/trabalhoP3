@@ -10,6 +10,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <!-- CSS Flickity -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <!-- JS Flickity -->
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
 </head>
 <body>
@@ -45,39 +49,40 @@
 
         <!--carrocel destaques (?) -->
         <section id="destaques" class="destaques">
-            <h1 class="slogan" id="Tdestaque">Destaques</h1>
+            <h1 class="slogan" id="Tdestaque">✨Destaques✨</h1>
 
-            <div class="carrossel-container">
-                <button class="seta esquerda">⟵</button>
-                <div class="carrossel-wrapper">
-                    <ul class="carrossel">
-                        <li class="card">
-                            <img src="img/destaques/xcawa.png" alt="BACONBUNGA">
-                            <h3>BACONBUNGA</h3>
-                            <p>Pão brioche artesanal douradinho no capricho, cheddar derretido de dar onda e uma avalanche de bacon crocante — tipo, MUITO bacon mesmo.</p>
-                            <button class="adicionar">Adicionar</button>
-                        </li>
-                        <li class="card">
-                            <img src="img/xmar.png" alt="SALMÃO WAVE">
-                            <h3>SALMÃO WAVE</h3>
-                            <p>Pão australiano macio e escurinho, filé de salmão grelhado no ponto, e uma camada ousada de geleia de wasabi.</p>
-                            <button class="adicionar">Adicionar</button>
-                        </li>
-                        <li class="card">
-                            <img src="img/xmar.png" alt="ALOHA BURGUER">
-                            <h3>ALOHA BURGUER</h3>
-                            <p>Pão de leite tostadinho, hambúrguer artesanal de fraldinha, queijo prato, abacaxi grelhado, alface americana e molho agridoce com gengibre.</p>
-                            <button class="adicionar">Adicionar</button>
-                        </li>
-                        <li class="card">
-                            <img src="img/xmar.png" alt="SURF’n’SPICE BURGUER">
-                            <h3>SURF’n’SPICE BURGUER</h3>
-                            <p>Pão australiano, carne angus suculenta, cheddar maturado, cebola roxa no shoyu, picles artesanal e molho chipotle apimentado.</p>
-                            <button class="adicionar">Adicionar</button>
-                        </li>
-                    </ul>
-                    <button class="seta direita">⟶</button>
+             <!-- Flickity Gallery -->
+            <div class="gallery js-flickity"
+                data-flickity-options='{ "wrapAround": true, "cellAlign": "center", "pageDots": false }'>
+
+                <div class="gallery-cell card">
+                    <img src="img/destaques/xcawa.png" alt="BACONBUNGA">
+                    <h3>BACONBUNGA</h3>
+                    <p>Pão brioche artesanal douradinho no capricho, cheddar derretido de dar onda e uma avalanche de bacon crocante — tipo, MUITO bacon mesmo.</p>
+                    <button class="adicionar">Adicionar</button>
                 </div>
+
+                 <div class="gallery-cell card">
+                    <img src="img/xmar.png" alt="SALMÃO WAVE">
+                    <h3>SALMÃO WAVE</h3>
+                    <p>Pão australiano macio e escurinho, filé de salmão grelhado no ponto, e uma camada ousada de geleia de wasabi.</p>
+                    <button class="adicionar">Adicionar</button>
+                 </div>
+
+                <div class="gallery-cell card">
+                    <img src="img/xmar.png" alt="ALOHA BURGUER">
+                    <h3>ALOHA BURGUER</h3>
+                    <p>Pão de leite tostadinho, hambúrguer artesanal de fraldinha, queijo prato, abacaxi grelhado, alface americana e molho agridoce com gengibre.</p>
+                    <button class="adicionar">Adicionar</button>
+                </div>
+
+                <div class="gallery-cell card">
+                    <img src="img/xmar.png" alt="SURF’n’SPICE BURGUER">
+                    <h3>SURF’n’SPICE BURGUER</h3>
+                    <p>Pão australiano, carne angus suculenta, cheddar maturado, cebola roxa no shoyu, picles artesanal e molho chipotle apimentado.</p>
+                    <button class="adicionar">Adicionar</button>
+                </div>
+
             </div>
         </section>
     
