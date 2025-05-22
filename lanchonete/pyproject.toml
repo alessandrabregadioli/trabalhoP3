@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "lanchonete"
+version = "0.1.0"
+description = ""
+authors = ["Henry Gabriel <63942305+HenryGabriel-2407@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
