@@ -1,6 +1,8 @@
 ## Configurações
 
-Para isso deverá possuir pipx (do Python) instalado,
+Para isso deverá possuir pipx (do Python) instalado, além disso, deverá ter pgAdmin 4 (SGBD Postgres) instalado e realizar o deploy.
+
+***Por enquanto será este tutorial até eu dockerizar o sistema***
 
 1. Baixar poetry para baixar bibliotecas 
 
@@ -69,7 +71,7 @@ Fecha o terminal e abre novamente
 
 ``run = 'fastapi dev lanchonete/app.py'``
 
-``test = 'pytest -s --cov=snack_bar_system -vv'``
+``test = 'pytest -s --cov=lanchonete -vv'``
 
 ``post_test = 'coverage html'``
 
@@ -79,5 +81,40 @@ Fecha o terminal e abre novamente
 
 ``pre_test = 'task lint'``
 
+
+5. Criar as tabelas no Postgres com SQLAchemy e Alembic:
+
+Primeiro, no arquivo lanchonete/.env vai definir DATABASE_URl para conectar com o SGBD na seguinte forma:
+
+``DATABASE_URl="postgresql+psycopg2://postgres:[senha_postgres]@localhost:5432/lanchonete"``
+
+``alembic init migrations``
+
+``alembic revision --autogenerate -m "[qualquer_nome]" ``
+
+``alembic upgrade head``  (Para utilizar a versão atual do esquema do banco de dados)
+
+Em migrations/env.py o arquivo deverá está desta forma:
+
+```
+from logging.config import fileConfig
+
+from sqlalchemy import engine_from_config
+from sqlalchemy import pool
+
+from alembic import context
+
+from lanchonete.models import table_registry
+from lanchonete.settings import Settings
+
+config = context.config
+config.set_main_option('sqlalchemy.url', Settings().DATABASE_URL)
+
+
+if config.config_file_name is not None:
+    fileConfig(config.config_file_name)
+
+target_metadata = table_registry.metadata
+```
 
 *** Já vou adicionar os arquivos e mais instruções ;) ***
