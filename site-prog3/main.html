@@ -12,9 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <!-- CSS Flickity -->
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-    <!-- JS Flickity -->
-    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-
 </head>
 <body>
     <nav class="navbar">
@@ -53,6 +50,66 @@
 
              <!-- Flickity Gallery -->
             <div class="gallery js-flickity"
+               data-flickity-options='{
+                    "wrapAround": false,
+                    "cellAlign": "center",
+                    "contain": true,
+                    "pageDots": false,
+                    "prevNextButtons": true
+                }'>
+                
+                <!-- slide 1 -->
+                <div class="gallery-cell card">
+                    <img src="img/destaques/xcawa.png" alt="BACONBUNGA">
+                    <h3 class="titulo-burger">BACONBUNGA</h3>
+                    <p class="descricao-burger">Pão brioche artesanal douradinho no capricho, cheddar derretido de dar onda e uma avalanche de bacon crocante — tipo, MUITO bacon mesmo.</p>
+                    <button class="btn-order">Adicionar</button>
+                </div>
+                <!-- slide 2 -->
+                   <div class="gallery-cell card">
+                    <img src="img/destaques/xcawa.png" alt="BACONBUNGA">
+                    <h3 class="titulo-burger">BACONBUNGA</h3>
+                    <p class="descricao-burger">Pão brioche artesanal douradinho no capricho, cheddar derretido de dar onda e uma avalanche de bacon crocante — tipo, MUITO bacon mesmo.</p>
+                    <button class="btn-order">Adicionar</button>
+                </div>
+                <!-- slide 3 -->
+                   <div class="gallery-cell card">
+                    <img src="img/destaques/xcawa.png" alt="BACONBUNGA">
+                    <h3 class="titulo-burger">BACONBUNGA</h3>
+                    <p class="descricao-burger">Pão brioche artesanal douradinho no capricho, cheddar derretido de dar onda e uma avalanche de bacon crocante — tipo, MUITO bacon mesmo.</p>
+                    <button class="btn-order">Adicionar</button>
+                </div>
+                  <!-- slide 4 -->
+                   <div class="gallery-cell card">
+                    <img src="img/destaques/xcawa.png" alt="BACONBUNGA">
+                    <h3 class="titulo-burger">BACONBUNGA</h3>
+                    <p class="descricao-burger">Pão brioche artesanal douradinho no capricho, cheddar derretido de dar onda e uma avalanche de bacon crocante — tipo, MUITO bacon mesmo.</p>
+                    <button class="btn-order">Adicionar</button>
+                </div>
+                   <!-- slide 5 -->
+                   <div class="gallery-cell card">
+                    <img src="img/destaques/xcawa.png" alt="BACONBUNGA">
+                    <h3 class="titulo-burger">BACONBUNGA</h3>
+                    <p class="descricao-burger">Pão brioche artesanal douradinho no capricho, cheddar derretido de dar onda e uma avalanche de bacon crocante — tipo, MUITO bacon mesmo.</p>
+                    <button class="btn-order">Adicionar</button>
+                </div>
+                   <!-- slide 6 -->
+                   <div class="gallery-cell card">
+                    <img src="img/destaques/xcawa.png" alt="BACONBUNGA">
+                    <h3 class="titulo-burger">BACONBUNGA</h3>
+                    <p class="descricao-burger">Pão brioche artesanal douradinho no capricho, cheddar derretido de dar onda e uma avalanche de bacon crocante — tipo, MUITO bacon mesmo.</p>
+                    <button class="btn-order">Adicionar</button>
+                </div>
+                   <!-- slide 7 -->
+                   <div class="gallery-cell card">
+                    <img src="img/destaques/xcawa.png" alt="BACONBUNGA">
+                    <h3 class="titulo-burger">BACONBUNGA</h3>
+                    <p class="descricao-burger">Pão brioche artesanal douradinho no capricho, cheddar derretido de dar onda e uma avalanche de bacon crocante — tipo, MUITO bacon mesmo.</p>
+                    <button class="btn-order">Adicionar</button>
+                </div> 
+            </div>
+
+             <!--<div class="gallery js-flickity"
                 data-flickity-options='{ "wrapAround": true, "cellAlign": "center", "pageDots": false }'>
 
                 <div class="gallery-cell card">
@@ -83,7 +140,7 @@
                     <button class="adicionar">Adicionar</button>
                 </div>
 
-            </div>
+            </div> -->
         </section>
     
         <section id="monte">
@@ -132,5 +189,29 @@
         <h3>© 2025 Cowabunga Burger</h3>
         <p>Buguers radicais desde 1989</p>
     </footer>
+
+    <!-- JS Flickity -->
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <!-- JS Flickity (parar de quebrar o layout) -->
+    <script>
+     // Espera o DOM carregar
+         window.addEventListener('load', function () {
+            const flkty = new Flickity('.gallery', {
+            wrapAround: false,
+            cellAlign: 'center',
+            contain: true,
+            pageDots: false,
+            prevNextButtons: true
+        });
+
+     // Espera um tiquinho pra garantir que o layout tá pronto
+        setTimeout(() => {
+         flkty.select(2, false, true); // Terceiro card (índice 2), sem wrap, instantâneo
+            }, 100);
+        });
+    </script>
+
+
+
 </body>
 </html>
