@@ -216,3 +216,43 @@ body, html {
   background-color: #ea580c;
 }
 
+/* Montar burgão */
+
+#monte {
+  background-color: #fefce8;
+  border: 3px solid #144e49;
+  border-radius: 10px;
+  padding: 2.5rem;
+  max-width: 500px;
+  margin: 3rem auto;
+  box-shadow: 4px 4px 0 #144e49;
+  text-align: center;
+}
+
+#monte h1 {
+  font-family: 'Anton', sans-serif;
+  font-weight: 100;
+  font-size: 2.5rem;
+  color: #ea580c;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+
+}
+
+#monte p {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #144e49;
+}
+
+#monte label {
+  display: block;
+  font-size: 1.2rem;
+  color: #ea580c;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+
