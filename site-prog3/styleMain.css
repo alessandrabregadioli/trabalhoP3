@@ -128,9 +128,8 @@ body, html {
 
 .destaques {
   background-image: url("img/hero/fDestaques.png");
- 
-  background-position: center;
-  padding-bottom: 20rem;
+  background-size: auto;
+  background-repeat: repeat;
 }
 
 #Tdestaque {
