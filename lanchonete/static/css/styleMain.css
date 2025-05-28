@@ -1,0 +1,258 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #faeed7;
+  }
+  .navbar {
+    background-color: #0e5b53;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+  }
+  
+  .img-logo {
+    max-width: 50px; 
+    width: 100%;
+    height: auto;
+  }
+
+  .logo a {
+    font-family: 'Pacifico', cursive;
+    text-decoration: none;
+    text-transform: lowercase;
+    font-size: 1.5rem;
+    color: #F2E9BD;
+    display: flex;
+    align-items: center; 
+    gap: 0.5rem; 
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;         
+    gap: 2rem;             
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: #F2E9BD;
+    font-weight:normal;
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+  
+  
+  .hero {
+    background-image: url("img/hero/fundo.png");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;;
+  }
+
+  .COWABUNGA {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .titulos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  .top-title {
+    font-family: 'Anton', sans-serif;
+    font-weight: 100;
+    text-transform: uppercase;
+    color: #EA580C;
+    text-shadow: 5px 5px 0 #144E49;
+    font-size: 7rem;
+    letter-spacing: 6px;
+    margin-top: 2vh ;
+    margin-bottom: 0;
+    line-height: 1;
+  }
+  
+  .main-title {
+    font-family: 'Pacifico', cursive;
+    color: #EA580C;
+    text-shadow: 4px 4px 0 #144E49;
+    font-size: 5rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    transform: rotate(-8deg);
+    text-decoration: underline;
+  }
+  
+  .burgue-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+  }
+  
+  .logo-burgue {
+    max-width: 300px; 
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(4px 4px 0 #144E49);
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .slogan{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Anton', sans-serif;
+    font-weight: 100;
+    text-transform: uppercase;
+    color: #144E49;
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  /*destaques*/
+
+.destaques {
+  background-image: url("img/hero/fDestaques.png");
+  background-size: auto;
+  background-repeat: repeat;
+}
+
+#Tdestaque {
+  font-size: 3rem;
+  padding-top: 3rem;
+  color: #144E49;
+  font-family: 'Anton', sans-serif;
+}
+
+.gallery {
+  max-width: 100%;
+  padding: 2rem 3rem;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+.gallery-cell.card {
+ width: 25rem;
+ margin: 0 1rem;
+ background-color: #fefce8;
+ border: 4px solid #0f766e;
+ border-radius: 0.5rem;
+ padding: 2rem;
+ text-align: center;
+
+ transition: transform 0.3s ease;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+
+ opacity: 0.5;
+ transition: opacity 0.3s ease-in-out, transform 0.3s ease;
+
+ will-change: transform, opacity;
+ transform: translateZ(0);
+}
+
+.gallery-cell.is-selected {
+  opacity: 1;
+  transform: scale(1.03); 
+}
+
+.gallery-cell.card:hover {
+  transform: scale(1.03);
+}
+
+.gallery-cell.card img {
+  width: 9rem;
+  height: 9rem;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  border: 3px solid #ea580c;
+}
+
+.titulo-burger {
+  font-family: 'Anton', sans-serif;
+  color: #ea580c;
+  font-size: 1.6rem;
+  margin: 0.5rem 0;
+}
+
+.descricao-burger {
+  font-size: 1rem;
+  color: #144E49;
+  margin-bottom: 1rem;
+}
+
+.btn-order {
+  background-color: #f97316;
+  color: white;
+  font-weight: bold;
+  font-family: 'Anton', sans-serif;
+  font-size: 1rem;
+  padding: 0.7rem 1.5rem;
+  border: 2px solid #0f766e;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-order:hover {
+  background-color: #ea580c;
+}
+
+/* Montar burgão */
+
+#monte {
+  background-color: #fefce8;
+  border: 3px solid #144e49;
+  border-radius: 10px;
+  padding: 2.5rem;
+  max-width: 500px;
+  margin: 3rem auto;
+  box-shadow: 4px 4px 0 #144e49;
+  text-align: center;
+}
+
+#monte h1 {
+  font-family: 'Anton', sans-serif;
+  font-weight: 100;
+  font-size: 2.5rem;
+  color: #ea580c;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+
+}
+
+#monte p {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #144e49;
+}
+
+#monte label {
+  display: block;
+  font-size: 1.2rem;
+  color: #ea580c;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+

@@ -39,6 +39,25 @@ class Combo_Produto:
 
 
 @table_registry.mapped_as_dataclass
+class Cliente:
+    __tablename__ = 'cliente'
+
+    id: Mapped[int] = mapped_column(init=False, primary_key=True)
+    nome: Mapped[str] = mapped_column(nullable=False)
+    email: Mapped[str] = mapped_column(nullable=False, unique=True)
+    telefone: Mapped[str] = mapped_column(init=False)
+    endereco_num_residencia: Mapped[str] = mapped_column(nullable=False)
+    endereco_rua: Mapped[str] = mapped_column(nullable=False)
+    endereco_bairro: Mapped[str] = mapped_column(nullable=False)
+    endereco_cidade: Mapped[str] = mapped_column(nullable=False)
+    endereco_complemento: Mapped[str] = mapped_column(nullable=False)
+    documento: Mapped[str] = mapped_column(init=False, unique=True)
+    senha_hash: Mapped[str] = mapped_column(nullable=False)
+
+    comandas: Mapped[list['Comanda']] = relationship(back_populates='cliente_rel', default_factory=list)
+
+
+@table_registry.mapped_as_dataclass
 class Pedido_Item:
     __tablename__ = 'pedido_item'
 
@@ -48,6 +67,9 @@ class Pedido_Item:
     id_combo: Mapped[int] = mapped_column(ForeignKey('combo.id'), nullable=True)
     quantidade: Mapped[int] = mapped_column(nullable=False)
     observacao: Mapped[str] = mapped_column(nullable=True)
+
+    # Add a relationship back to Comanda for completeness (if needed)
+    comanda_rel: Mapped['Comanda'] = relationship('Comanda', back_populates='pedido_item', lazy='joined')
 
 
 @table_registry.mapped_as_dataclass
@@ -63,22 +85,10 @@ class Comanda:
     metodo_pagamento: Mapped[str]
     valor_a_pagar: Mapped[float]
     status_pagamento: Mapped[str]
-    pedido_item: Mapped[list['Pedido_Item']] = relationship(backref='comanda')
-    troco: Mapped[float] = mapped_column(default=0.0)
 
+    # --- MOVE RELATIONSHIP FIELDS HERE, BEFORE ANY DEFAULTS ---
+    cliente_rel: Mapped[Optional['Cliente']] = relationship('Cliente', back_populates='comandas', lazy='joined')
+    pedido_item: Mapped[list['Pedido_Item']] = relationship(back_populates='comanda_rel', default_factory=list)
+    # -----------------------------------------------------------
 
-@table_registry.mapped_as_dataclass
-class Cliente:
-    __tablename__ = 'cliente'
-
-    id: Mapped[int] = mapped_column(init=False, primary_key=True)
-    nome: Mapped[str] = mapped_column(nullable=False)
-    email: Mapped[str] = mapped_column(nullable=False, unique=True)
-    telefone: Mapped[str] = mapped_column(init=False)
-    endereco_num_residencia: Mapped[str] = mapped_column(nullable=False)
-    endereco_rua: Mapped[str] = mapped_column(nullable=False)
-    endereco_bairro: Mapped[str] = mapped_column(nullable=False)
-    endereco_cidade: Mapped[str] = mapped_column(nullable=False)
-    endereco_complemento: Mapped[str] = mapped_column(nullable=False)
-    documento: Mapped[str] = mapped_column(init=False, unique=True)  # CPF ou CNPJ
-    senha_hash: Mapped[str] = mapped_column(nullable=False)
+    troco: Mapped[float] = mapped_column(default=0.0) # This field has a default value, so it comes last

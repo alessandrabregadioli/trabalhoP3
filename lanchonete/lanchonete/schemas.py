@@ -141,6 +141,11 @@ class CreateProdutoItem(BaseModel):
             raise ValueError('Quantidade deve ser maior que 0')
         return v
 
+class ItemComanda(BaseModel):  # Assuming you have this already
+    id_produto: Optional[int] = None
+    id_combo: Optional[int] = None
+    quantidade: int
+    observacao: Optional[str] = None
 
 class CreateComanda(BaseModel):
     id_cliente: Optional[int] = None
@@ -157,6 +162,7 @@ class ComandaOut(BaseModel):
     id: int
     preco_total: float
     id_cliente: Optional[int] = Field(alias='id_client')
+    cliente_rel: Optional[GetCliente] = None
     tipo_entrega: str
     metodo_pagamento: str
     valor_a_pagar: float
@@ -164,6 +170,17 @@ class ComandaOut(BaseModel):
     status_comanda: StatusComanda
     status_pagamento: StatusPagamento
     data_registro: datetime
+    pedido_item: List[ItemComanda] 
 
     class Config:
         from_attributes = True
+
+class UpdateComanda(BaseModel):
+    id_cliente: Optional[int] = None
+    tipo_entrega: Optional[str] = None
+    metodo_pagamento: Optional[str] = None
+    valor_a_pagar: Optional[float] = None
+    troco: Optional[float] = None
+    status_comanda: Optional[str] = None
+    status_pagamento: Optional[str] = None
+    itens: Optional[List[CreateProdutoItem]] = None

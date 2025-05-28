@@ -7,7 +7,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from lanchonete.database import get_session
-from lanchonete.models import Combo, Produto
+from lanchonete.models import Combo, Produto, Combo_Produto
 from lanchonete.schemas import (
     GetCombo,
     PostCombo,
@@ -39,4 +39,43 @@ def get_combo(combo_id: int, session: Session = Depends(get_session)):
     combo = session.scalar(select(Combo).where(Combo.id == combo_id))
     if not combo:
         raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail="Combo não encontrado")
+    return combo
+
+
+@router.delete('/{combo_id}')
+def delete_combo(combo_id: int, session: Session = Depends(get_session)):
+    combo = session.scalar(select(Combo).where(Combo.id == combo_id))
+    if not combo:
+        raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail="Combo não encontrado")
+    session.delete(combo)
+    session.commit()
+    return "Combo excluído com sucesso"
+
+@router.put('/{combo_id}', response_model=GetCombo)
+def atualizar_combo(combo_id: int, combo_atualizacao: PostCombo, session: Session = Depends(get_session)):
+    combo = session.scalar(select(Combo).where(Combo.id == combo_id))
+    if not combo:
+        raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail="Combo não encontrado")
+
+    # Update basic combo attributes
+    combo.nome = combo_atualizacao.nome
+    combo.imagem_link = combo_atualizacao.imagem_link
+    combo.preco = combo_atualizacao.preco
+
+    # Handle product associations
+    if combo_atualizacao.produtos is not None:
+        # Fetch the products to associate
+        produtos_para_associar = session.query(Produto).filter(Produto.id.in_(combo_atualizacao.produtos)).all()
+
+        # Check if all provided product IDs exist
+        if len(produtos_para_associar) != len(combo_atualizacao.produtos):
+            raise HTTPException(status_code=400, detail='Um ou mais produtos para associação não encontrados')
+
+        # Clear existing associations and add new ones
+        combo.produtos.clear()  # This clears the associated products in the Python object
+        combo.produtos.extend(produtos_para_associar) # This adds the new products to the Python object
+
+    session.add(combo) # Re-add the combo to the session for it to detect changes in relationships
+    session.commit()
+    session.refresh(combo)
     return combo
