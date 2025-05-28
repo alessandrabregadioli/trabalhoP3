@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Comandas - Aloha</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="static/css/gerenciamento_comanda.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🌴 Gestão de Comandas Aloha 🌺</h1>
+        
+        <div class="filters">
+            <div class="filter-group">
+                <label for="statusFilter">Filtrar por Status:</label>
+                <select id="statusFilter">
+                    <option value="all">Todos</option>
+                    <option value="em processamento">Em Processamento</option>
+                    <option value="pronta">Pronta</option>
+                    <option value="entregue">Entregue</option>
+                    <option value="cancelada">Cancelada</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="searchInput">Buscar:</label>
+                <input type="text" id="searchInput" placeholder="ID, cliente ou item...">
+            </div>
+            
+            <button id="refreshBtn"><i class="fas fa-sync-alt"></i> Atualizar</button>
+        </div>
+        
+        <div class="comandas-grid" id="comandasContainer">
+            <!-- Comandas serão carregadas aqui via JavaScript -->
+            <div class="loading-message">
+                <i class="fas fa-spinner fa-spin"></i> Carregando comandas...
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal de Detalhes da Comanda -->
+    <div class="modal" id="comandaModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modalTitle">Comanda #<span id="comandaId"></span></h2>
+            
+            <div class="modal-body">
+                <div class="comanda-info">
+                    <div class="info-section">
+                        <h3>Informações Gerais</h3>
+                        <div class="cliente-info">
+                            <p><strong>Cliente:</strong> <span id="clienteInfo">Não informado</span></p>
+                        </div>
+                        <p><strong>Tipo de Entrega:</strong> <span id="tipoEntrega"></span></p>
+                        <p><strong>Método de Pagamento:</strong> <span id="metodoPagamento"></span></p>
+                        <p><strong>Data:</strong> <span id="dataComanda"></span></p>
+                    </div>
+                    
+                    <div class="info-section">
+                        <h3>Status</h3>
+                        <p><strong>Status da Comanda:</strong> 
+                            <select id="statusComandaSelect">
+                                <option value="em processamento">Em Processamento</option>
+                                <option value="pronta">Pronta</option>
+                                <option value="entregue">Entregue</option>
+                                <option value="cancelada">Cancelada</option>
+                            </select>
+                        </p>
+                        <p><strong>Status do Pagamento:</strong> 
+                            <select id="statusPagamentoSelect">
+                                <option value="pendente">Pendente</option>
+                                <option value="pago">Pago</option>
+                                <option value="recusado">Recusado</option>
+                                <option value="estornado">Estornado</option>
+                            </select>
+                        </p>
+                    </div>
+                    
+                    <div class="info-section">
+                        <h3>Valores</h3>
+                        <p><strong>Total:</strong> R$ <span id="totalComanda"></span></p>
+                        <p><strong>Valor a Pagar:</strong> R$ <span id="valorPagar"></span></p>
+                        <p><strong>Troco:</strong> R$ <span id="trocoComanda"></span></p>
+                    </div>
+                </div>
+                
+                <div class="itens-section">
+                    <h3>Itens do Pedido</h3>
+                    <div class="itens-list" id="itensList">
+                        <!-- Itens serão carregados aqui -->
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <button id="saveBtn" class="btn-primary"><i class="fas fa-save"></i> Salvar Alterações</button>
+                    <button id="editBtn" class="btn-edit"><i class="fas fa-edit"></i> Editar Comanda</button>
+                    <button id="deleteBtn" class="btn-danger"><i class="fas fa-trash-alt"></i> Excluir Comanda</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal de Confirmação -->
+    <div class="confirm-modal" id="confirmModal">
+        <div class="confirm-content">
+            <p id="confirmMessage">Tem certeza que deseja excluir esta comanda?</p>
+            <div class="confirm-buttons">
+                <button id="confirmYes" class="btn-danger">Sim, Excluir</button>
+                <button id="confirmNo" class="btn-secondary">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="static/js/gerenciamento_comanda.js"></script>
+</body>
+</html>

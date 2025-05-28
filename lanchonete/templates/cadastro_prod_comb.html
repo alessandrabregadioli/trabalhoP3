@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Produtos e Combos</title>
+    <link rel="stylesheet" href="static/css/css_prod_comb.css">
+</head>
+<body>
+    <h1>Gerenciamento de Lanchonete</h1>
+
+    <div class="container">
+        <div class="section">
+            <h2>Produtos</h2>
+            <h3>Criar Produto</h3>
+            <form id="createProductForm">
+                <label for="productName">Nome:</label>
+                <input type="text" id="productName" required>
+                <label for="productDescription">Descrição:</label>
+                <textarea id="productDescription" required></textarea>
+                <label for="productImageLink">Link da Imagem:</label>
+                <input type="text" id="productImageLink" required>
+                <label for="productPrice">Preço:</label>
+                <input type="number" id="productPrice" step="0.01" required>
+                <label for="productType">Tipo:</label>
+                <select id="productType" required>
+                    <option value="bebida">Bebida</option>
+                    <option value="lanche">Lanche</option>
+                    <option value="entrada">Entrada</option>
+                    <option value="sobremesa">Sobremesa</option>
+                </select>
+                <button type="submit">Criar Produto</button>
+            </form>
+
+            <h3>Lista de Produtos</h3>
+            <div id="productList" class="item-list"></div>
+        </div>
+
+        <div class="section">
+            <h2>Combos</h2>
+            <h3>Criar Combo</h3>
+            <form id="createComboForm">
+                <label for="comboName">Nome:</label>
+                <input type="text" id="comboName" required>
+                <label for="comboImageLink">Link da Imagem:</label>
+                <input type="text" id="comboImageLink" required>
+                <label for="comboPrice">Preço:</label>
+                <input type="number" id="comboPrice" step="0.01" required>
+
+                <label>Selecionar Produtos:</label>
+                <button type="button" id="openProductSelection">Selecionar Produtos para o Combo</button>
+                <div id="selectedProductsDisplay" style="margin-top: 10px; border: 1px solid #ddd; padding: 10px; min-height: 40px; border-radius: 4px; background-color: #f9f9f9;">
+                    Nenhum produto selecionado.
+                </div>
+                <input type="hidden" id="comboProductsHidden" name="comboProducts">
+
+                <button type="submit" style="margin-top: 20px;">Criar Combo</button>
+            </form>
+
+            <h3>Lista de Combos</h3>
+            <div id="comboList" class="item-list"></div>
+        </div>
+
+        <div id="productSelectionModal" style="display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4);">
+            <div style="background-color: #fefefe; margin: 5% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 900px; border-radius: 8px; position: relative;">
+                <span class="close-button" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
+                <h2>Selecionar Produtos</h2>
+                <div id="allProductsForSelection" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; max-height: 400px; overflow-y: auto; padding: 10px; border: 1px solid #eee; background-color: #f0f0f0;">
+                    </div>
+                <div style="margin-top: 20px; text-align: right;">
+                    <button id="saveSelectionButton">Salvar Seleção</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="static/js/script_prod_comb.js"></script>
+</body>
+</html>

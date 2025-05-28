@@ -2,10 +2,20 @@ from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 
 from routers import cliente, comanda, combo, produto
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Ou especifique seus domínios ["http://localhost:3000", etc.]
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 app.include_router(cliente.router)
 app.include_router(produto.router)
@@ -15,11 +25,14 @@ app.include_router(comanda.router)
 templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-@app.get("/", response_class=HTMLResponse)
-def get_form(request: Request):
-    return templates.TemplateResponse("cadastro.html", {"request": request})
+@app.get("/comanda", response_class=HTMLResponse)
+async def get_form(request: Request):
+    return templates.TemplateResponse("comanda.html", {"request": request})
 
-@app.get("/produto", response_class=HTMLResponse)
-def page_produtos(request: Request):
-    return templates.TemplateResponse("produtos.html", {"request": request})
+@app.get("/produto-combo", response_class=HTMLResponse)
+async def read_root(request: Request):
+    return templates.TemplateResponse("cadastro_prod_comb.html", {"request": request})
 
+@app.get("/gerenciamento", response_class=HTMLResponse)
+async def read_gerenciamento(request: Request):
+    return templates.TemplateResponse("gerenciamento_comanda.html", {"request": request})

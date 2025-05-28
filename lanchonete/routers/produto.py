@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 from http import HTTPStatus
 
 from lanchonete.database import get_session
-from lanchonete.models import Produto
+from lanchonete.models import Produto, Combo_Produto
 from lanchonete.schemas import GetProduto, PostProduto, ProdutoListResponse, UpdateProduto
 
 router = APIRouter(prefix='/produto', tags=['produto'])
@@ -39,7 +39,10 @@ def delete_produto(produto_id: int, session: Session = Depends(get_session)):
     produto = session.scalar(select(Produto).where(Produto.id == produto_id))
     if not produto:
         raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail="Produto não encontrado")
-    # Verificar se tem combo associado ao produto
+    produto = session.scalar(select(Combo_Produto).where(Combo_Produto.produto_id == produto_id))
+    if produto:
+        raise HTTPException(status_code=HTTPStatus.BAD_REQUEST, detail="O produto está em um combo, por favor, exclua ou editar o combo primeiro.")
+    produto = session.scalar(select(Produto).where(Produto.id == produto_id))
     session.delete(produto)
     session.commit()
     return 'Produto deletado com sucesso!'
