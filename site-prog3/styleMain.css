@@ -351,7 +351,7 @@ body, html {
   padding: 4rem 2rem;
   text-align: center;
   color: white;
-  overflow: hidden; /* garante que o canvas não extrapole */
+  overflow: hidden; 
 }
 
 .destaques-da-galera h2 {
