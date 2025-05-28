@@ -32,6 +32,7 @@
       <li><a href="#galera">Galera</a></li>
       <li><a href="#contato">Contato</a></li>
     </ul>
+    <a class="carrinho" href="#"><img src="img/svg/carrinho.svg" alt=""></a>
     <button class="btn-primario">QUERO!</button>
   </nav>
 
@@ -52,61 +53,61 @@
     </section>
 
     <!-- Destaques -->
-    <section id="destaques" class="destaques">
-      <h1 class="slogan" id="Tdestaque">✨Destaques✨</h1>
+    <div class="transicao-gradiente">
+      <section id="destaques" class="destaques">
+        <h1 class="slogan" id="Tdestaque">✨Destaques✨</h1>
 
-      <div class="gallery js-flickity" data-flickity-options='{
-          "wrapAround": false,
-          "cellAlign": "center",
-          "contain": true,
-          "pageDots": false,
-          "prevNextButtons": true
-        }'>
+        <div class="gallery js-flickity" data-flickity-options='{
+            "wrapAround": false,
+            "cellAlign": "center",
+            "contain": true,
+            "pageDots": false,
+            "prevNextButtons": true
+          }'>
 
-        <!-- Slide de Exemplo -->
-        <div class="gallery-cell card card-base">
-          <img src="img/destaques/xcawa.png" alt="BACONBUNGA" />
-          <h3 class="titulo-burger">BACONBUNGA</h3>
-          <p class="descricao-burger">
-            Pão brioche artesanal douradinho no capricho, cheddar derretido de dar onda e uma avalanche de bacon crocante — tipo, MUITO bacon mesmo.
-          </p>
-          <button class="btn-primario">Adicionar</button>
-        </div>
-
-        <!-- Repetir com variações se desejar -->
-      </div>
-    </section>
-
-    <!-- Combos -->
-    <section id="combos">
-      <h1 class="slogan" id="Tdestaque">Escolha seu combão</h1>
-      <p>Ofertas tão tubulares que vão te deixar stoked!</p>
-
-      <div class="combo-container">
-        <!-- COMBO CARD -->
-        <div class="combo-card card-base">
-          <span class="tag">🔥 Popular</span>
-          <h3>O Cowabunga Clássico</h3>
-          <p class="desc">Nosso combo original que começou tudo!</p>
-          <div class="combo-imgs">
-            <img src="img/xcawa.png" alt="X-Kawabunga" />
-            <img src="img/fries.png" alt="Batata Radical" />
-            <img src="img/cola.png" alt="Cawabunga Cola" />
+          <!-- Slide de Exemplo -->
+          <div class="gallery-cell card card-base">
+            <img src="img/destaques/xcawa.png" alt="BACONBUNGA" />
+            <h3 class="titulo-burger">BACONBUNGA</h3>
+            <p class="descricao-burger">
+              Pão brioche artesanal douradinho no capricho, cheddar derretido de dar onda e uma avalanche de bacon crocante — tipo, MUITO bacon mesmo.
+            </p>
+            <button class="btn-primario">Adicionar</button>
           </div>
-          <div class="precos">
-            <span class="old">R$18.97</span>
-            <span class="new">R$15.99</span>
-            <p class="save">Economize R$2.98!</p>
-          </div>
-          <button class="btn-primario">PEDIR COMBO</button>
+
+          <!-- Repetir com variações se desejar -->
         </div>
+      </section>
 
-        <!-- Repetir combos com variações se desejar -->
-      </div>
-    </section>
+      <!-- Combos -->
+      <section id="combos">
+        <h1 class="slogan" id="Tdestaque">Escolha seu combão</h1>
+        <p>Ofertas tão tubulares que vão te deixar stoked!</p>
 
-    <!-- Galera -->
-  
+        <div class="combo-container">
+          <!-- COMBO CARD -->
+          <div class="combo-card card-base">
+            <span class="tag">🔥 Popular</span>
+            <h3>O Cowabunga Clássico</h3>
+            <p class="desc">Nosso combo original que começou tudo!</p>
+            <div class="combo-imgs">
+              <img src="img/xcawa.png" alt="X-Kawabunga" />
+              <img src="img/fries.png" alt="Batata Radical" />
+              <img src="img/cola.png" alt="Cawabunga Cola" />
+            </div>
+            <div class="precos">
+              <span class="old">R$18.97</span>
+              <span class="new">R$15.99</span>
+              <p class="save">Economize R$2.98!</p>
+            </div>
+            <button class="btn-primario">PEDIR COMBO</button>
+          </div>
+
+          <!-- Repetir combos com variações se desejar -->
+        </div>
+      </section>
+    </div>
+  <!-- Galera -->
   <section id="galera" class="destaques-da-galera">
     
      <div class="canvas-wrapper">
@@ -137,16 +138,16 @@
     <!-- Contato -->
     <section id="contato" class="contato">
       <div class="contatoTitulos">
-        <h2 class="slogan" class="titulo-contato">NÃO Fale com a Gente</h2>
+        <h2 class="slogan titulo-contato">NÃO Fale com a Gente</h2>
         <h3 class="slogan">(Mas se for...)</h3>
       </div>
 
       <div class="card-base">
-        <p><strong>WhatsApp: (00) 99999-9999</strong></p>
+        <p><strong>WhatsApp</strong><br>(00) 99999-9999</br></p>
 
         <p><strong>Instagram</strong><br><span>@cowabungaburgers🏖️</span></p>
 
-        <p class="mensagem-extra">Estamos muito ocupados fazendo os BURGÕES mais cabulosos da história, mas vamos tentar responder!</p>
+        <p class="mensagem-extra">"Estamos muito ocupados fazendo os BURGÕES mais cabulosos da história, mas vamos tentar responder!"</p>
       </div>
     </section>
   </div>
