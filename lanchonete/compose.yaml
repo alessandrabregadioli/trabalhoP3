@@ -1,0 +1,24 @@
+services:
+  lanchonete_database:
+    image: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: lanchonete_user
+      POSTGRES_DB: lanchonete_db
+      POSTGRES_PASSWORD: lanchonete_password
+    ports:
+      - "5432:5432"
+  
+  lanchonete_app:
+    image: lanchonete_app
+    build: .
+    entrypoint: ./entrypoint.sh
+    ports:
+      - "8000:8000"
+    depends_on:
+      - lanchonete_database
+    environment:
+      DATABASE_URL: postgresql+psycopg://lanchonete_user:lanchonete_password@lanchonete_database/lanchonete_db
+volumes:
+  pgdata:
