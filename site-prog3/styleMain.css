@@ -68,6 +68,59 @@ body, html {
   letter-spacing: 2px;
 }
 
+.nav-links li {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--cor-texto-claro);
+  font-weight: normal;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  transition: color 0.3s ease;
+}
+
+.nav-links li:hover{
+  transform: scale(1.1); 
+}
+
+.nav-links li:hover a {
+  color: #fff8dc; 
+}
+
+.carrinho {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 3px solid var(--cor-principal);
+  overflow: hidden;
+  margin-right: 2rem;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer; 
+}
+
+.carrinho img {
+  width: 70%; 
+  height: 70%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.carrinho:hover {
+  transform: scale(1.2); /* animação de zoom */
+  border-color: #facc15; /* um amarelinho vibrante opcional */
+  box-shadow: 0 0 10px var(--cor-principal); /* glow brabo */
+}
+
+.carrinho:hover img {
+  transform: rotate(-10deg); /* ou um tilt charmoso */
+}
+
+
 /* Hero */
 .hero {
   background-image: url("img/hero/fundo.png");
@@ -182,11 +235,23 @@ body, html {
   transform: scale(1.03);
 }
 
+/*destaques + combos fundo*/
+.transicao-gradiente {
+
+  background: linear-gradient(
+    to bottom,
+    #FEDCB3 20%,
+    #F2E2CE 100%
+  );
+}
+
+
 /* Destaques */
 .destaques {
-  background-image: url("img/hero/fDestaques.png");
+  /*background-image: url("img/hero/fDestaques.png");*/
   background-size: auto;
   background-repeat: repeat;
+  padding-bottom: 2rem;
 }
 
 #Tdestaque {
@@ -247,6 +312,7 @@ body, html {
 #combos {
   text-align: center;
   padding: 4rem 2rem;
+  padding-top: 0.5rem;
 }
 
 #combos p {
@@ -356,7 +422,7 @@ body, html {
 
 .destaques-da-galera h2 {
   font-family: var(--fonte-destaque);
-  font-size: 2.5rem;
+  font-size: 3rem;
   text-transform: uppercase;
   color: var(--cor-fundo);
   margin-bottom: 3rem;
@@ -412,30 +478,54 @@ body, html {
 /* contato */
 .contato{
   background-color: #FEF9C3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh
 }
 
 .contatoTitulos{
   padding-top: 1.5rem;
 }
 
+h2.slogan.titulo-contato {
+  font-size: 2.8rem;
+}
+
 .contato h3{
   font-family: var(--fonte-suave);
-  font-size: 1rem;
+  font-size: 1.5rem;
   text-transform: none;
   color: var(--cor-principal);
 }
 
-.card-contato{
-  display: inline-block;
-  border: 3px solid var(--cor-destaque);
-  border-radius: 0.75rem;
-  padding: 2rem;
-  max-width: 350px;
-  text-align: left;
+#card-contato {
+  max-width: 400px;
+  margin: 2rem auto;
+  text-align: center;
   transform: rotate(-1deg);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-  font-style: italic;
+}
+
+#card-contato p {
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+  line-height: 1.5;
   color: var(--cor-secundaria);
+}
+
+#card-contato span {
+  display: block;
+  font-weight: bold;
+  color: var(--cor-principal);
+  margin-top: 0.3rem;
+}
+
+.mensagem-extra {
+  font-style: italic;
+  font-size: 0.5rem;
+  color: var(--cor-destaque);
+
 }
 
 /* footer */
