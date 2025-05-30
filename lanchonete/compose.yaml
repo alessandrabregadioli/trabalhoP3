@@ -19,6 +19,6 @@ services:
     depends_on:
       - lanchonete_database
     environment:
-      DATABASE_URL: postgresql+psycopg://lanchonete_user:lanchonete_password@lanchonete_database/lanchonete_db
+      DATABASE_URL: postgresql+psycopg2://lanchonete_user:lanchonete_password@lanchonete_database/lanchonete_db
 volumes:
   pgdata:
