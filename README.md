@@ -7,7 +7,7 @@
 ## Como rodar:
 Vai na pasta lanchonete (raiz) e abre o terminal e digite:
 
-`docker-compose --build`
+`docker-compose up --build` (se for primeira vez e se eu mudar algo no banco de dados!!! Para fechar é crtl+c e abrir novamente, `docker-compose up`)
 Depois der enter espere enquanto toma o café.
 
 Depois de inicializado o sistema digite no seu navegador: `http://127.0.0.1:8000/docs` para ver os detalhes da API (eu sei que é muita coisa para este trabalho, qualquer coisa é só me ligar) e inserir os dados;
