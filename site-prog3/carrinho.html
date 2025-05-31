@@ -1,11 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Carrinho - Cowabunga Burger</title>
+    <link rel="stylesheet" href="carrinho.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
-   <h1>CARRINHO</h1>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <button class="back-btn" onclick="window.history.back()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m12 19-7-7 7-7"/>
+                        <path d="M19 12H5"/>
+                    </svg>
+                </button>
+                <div class="logo-section">
+                    <div class="logo-circle">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/>
+                            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                            <path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">CARRINHO</span>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <span class="item-count" id="headerItemCount">0 ITENS</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Empty Cart -->
+        <div class="empty-cart" id="emptyCart">
+            <div class="empty-icon">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/>
+                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                    <path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/>
+                </svg>
+            </div>
+            <h2 class="empty-title">SEU CARRINHO TÁ VAZIO!</h2>
+            <p class="empty-text">Que tal adicionar alguns burgers radicais?</p>
+            <a href="menu.html" class="btn-menu">VER MENU</a>
+        </div>
+
+        <!-- Cart Content -->
+        <div class="cart-content hidden" id="cartContent">
+            <div class="cart-items">
+                <h2 class="section-title">SEUS PEDIDOS RADICAIS</h2>
+                <div class="items-list" id="itemsList">
+                    <!-- Cart items will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="order-summary">
+                <div class="summary-card">
+                    <h3 class="summary-title">RESUMO DO PEDIDO</h3>
+
+                    <!-- Promo Code -->
+                    <div class="promo-section">
+                        <label class="promo-label">CÓDIGO PROMOCIONAL</label>
+                        <div class="promo-input-group">
+                            <input type="text" class="promo-input" placeholder="Digite o código" id="promoCode">
+                            <button class="promo-btn">OK</button>
+                        </div>
+                    </div>
+
+                    <!-- Price Breakdown -->
+                    <div class="price-breakdown">
+                        <div class="price-row">
+                            <span>Subtotal</span>
+                            <span id="subtotal">R$ 0,00</span>
+                        </div>
+                        <div class="price-row">
+                            <span>Taxa de entrega</span>
+                            <span id="deliveryFee">R$ 5,99</span>
+                        </div>
+                        <div class="price-row total-row">
+                            <span>TOTAL</span>
+                            <span id="totalPrice">R$ 5,99</span>
+                        </div>
+                    </div>
+
+                    <!-- Checkout Button -->
+                    <button class="checkout-btn">FINALIZAR PEDIDO</button>
+
+                    <p class="checkout-note">Ao finalizar, você será redirecionado para o pagamento</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Retro scan lines -->
+    <div class="scan-lines"></div>
+
+    <script src="carrinho.js"></script>
 </body>
 </html>
