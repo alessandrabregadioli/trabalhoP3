@@ -17,6 +17,7 @@ class Produto:
     imagem_link: Mapped[str] = mapped_column(nullable=False)
     preco: Mapped[float] = mapped_column(nullable=False)
     tipo: Mapped[str]
+    popular: Mapped[str]
     combos: Mapped[list['Combo']] = relationship(secondary='combo_produto', back_populates='produtos', init=False)
 
 
@@ -27,6 +28,7 @@ class Combo:
     nome: Mapped[str] = mapped_column(nullable=False)
     imagem_link: Mapped[str] = mapped_column(nullable=False)
     preco: Mapped[float] = mapped_column(nullable=False)
+    popular: Mapped[str]
     produtos: Mapped[list['Produto']] = relationship(secondary='combo_produto', back_populates='combos')
 
 
@@ -92,3 +94,11 @@ class Comanda:
     # -----------------------------------------------------------
 
     troco: Mapped[float] = mapped_column(default=0.0) # This field has a default value, so it comes last
+
+
+@table_registry.mapped_as_dataclass
+class CodPromocional:
+    __tablename__ = 'cod_promocional'
+
+    id: Mapped[int] = mapped_column(init=False, primary_key=True)
+    codigo: Mapped[str] = mapped_column(unique=True)

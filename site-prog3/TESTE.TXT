@@ -1,7 +1,7 @@
-criar uma tabela de código promocional
+criar uma tabela de código promocional - FEITO
 arrumar o icone em carrinho.html e do menu.html
 arrumar o card do produto vegano em menu.html
-adicionar a tabela se é popular
+adicionar a tabela se é popular - FEITO
 destaques e combo em um só
 destaques da galera (colocar mais cards e colocar em um carrossel)
 arrumar o tamanho dos cards

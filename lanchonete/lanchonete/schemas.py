@@ -88,6 +88,19 @@ class PostProduto(BaseModel):
     imagem_link: str
     preco: float
     tipo: TipoProduto
+    popular: bool
+
+
+class PostCodigoPromocional(BaseModel):
+    codigo: str
+
+class GetCodigoPromocional(BaseModel):
+    id: int
+    codigo: str
+
+    
+class ListCodigoPromocional(BaseModel):
+    codigos: List[GetCodigoPromocional]
 
 
 class GetProduto(BaseModel):
@@ -97,6 +110,7 @@ class GetProduto(BaseModel):
     imagem_link: str
     preco: float
     tipo: TipoProduto
+    popular: bool
 
 
 class UpdateProduto(BaseModel):
@@ -105,11 +119,13 @@ class UpdateProduto(BaseModel):
     imagem_link: Optional[str]
     preco: Optional[float]
     tipo: Optional[TipoProduto]
+    popular: bool
 
 class PostCombo(BaseModel):
     nome: str
     imagem_link: str
     preco: float
+    popular: bool
     produtos: List[int]
 
 
@@ -118,6 +134,7 @@ class GetCombo(BaseModel):
     nome: str
     imagem_link: str
     preco: float
+    popular: bool
     produtos: List[GetProduto]
 
     class Config:

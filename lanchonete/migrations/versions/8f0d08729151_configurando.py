@@ -1,8 +1,8 @@
-"""Create initial table
+"""Configurando
 
-Revision ID: 3da175a62239
+Revision ID: 8f0d08729151
 Revises: 
-Create Date: 2025-05-30 12:44:03.828794
+Create Date: 2025-06-01 16:09:21.037516
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = '3da175a62239'
+revision: str = '8f0d08729151'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -37,11 +37,18 @@ def upgrade() -> None:
     sa.UniqueConstraint('documento'),
     sa.UniqueConstraint('email')
     )
+    op.create_table('cod_promocional',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('codigo', sa.String(), nullable=False),
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('codigo')
+    )
     op.create_table('combo',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('nome', sa.String(), nullable=False),
     sa.Column('imagem_link', sa.String(), nullable=False),
     sa.Column('preco', sa.Float(), nullable=False),
+    sa.Column('popular', sa.String(), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('produto',
@@ -51,6 +58,7 @@ def upgrade() -> None:
     sa.Column('imagem_link', sa.String(), nullable=False),
     sa.Column('preco', sa.Float(), nullable=False),
     sa.Column('tipo', sa.String(), nullable=False),
+    sa.Column('popular', sa.String(), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('comanda',
@@ -97,5 +105,6 @@ def downgrade() -> None:
     op.drop_table('comanda')
     op.drop_table('produto')
     op.drop_table('combo')
+    op.drop_table('cod_promocional')
     op.drop_table('cliente')
     # ### end Alembic commands ###
