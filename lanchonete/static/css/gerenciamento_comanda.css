@@ -1,6 +1,6 @@
 body {
     font-family: 'Open Sans', sans-serif;
-    background: linear-gradient(to right, #f5f7fa, #e4e8f0);
+    background: linear-gradient(to bottom, #fb923c, #f97316, #dc2626);
     color: #333;
     margin: 0;
     padding: 20px;
@@ -15,7 +15,7 @@ body {
 
 h1 {
     font-family: 'Pacifico', cursive;
-    color: #FF6347;
+    color: #474dff;
     text-align: center;
     margin-bottom: 30px;
     font-size: 2.5em;

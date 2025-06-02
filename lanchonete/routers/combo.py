@@ -22,7 +22,7 @@ def criar_combo(combo: PostCombo, session: Session = Depends(get_session)):
     produtos = session.query(Produto).filter(Produto.id.in_(combo.produtos)).all()
     if not produtos or len(produtos) != len(combo.produtos):
         raise HTTPException(status_code=400, detail='Um ou mais produtos não encontrados')
-    novo_combo = Combo(nome=combo.nome, imagem_link=combo.imagem_link, preco=combo.preco, produtos=produtos)
+    novo_combo = Combo(nome=combo.nome, imagem_link=combo.imagem_link, preco=combo.preco, produtos=produtos, popular = str(combo.popular))
     session.add(novo_combo)
     session.commit()
     session.refresh(novo_combo)

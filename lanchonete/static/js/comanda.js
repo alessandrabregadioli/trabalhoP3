@@ -106,20 +106,24 @@ async function fetchAndRenderProducts() {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const responseData = await response.json();
-        
-        // Ajuste aqui - acesse a propriedade 'produtos' do objeto
+
+        // Adjust here - access the 'produtos' property of the object
         allProducts = responseData.produtos || [];
-        
+
         if (allProducts.length === 0) {
             productListDiv.innerHTML = '<p>No products available at the moment. Check back later!</p>';
             return;
         }
 
         productListDiv.innerHTML = ''; // Limpa a mensagem de loading
-        
+
         allProducts.forEach(product => {
+            // Add a "Popular" tag if product.popular is true
+            const popularTag = product.popular ? '<span class="popular-tag">Popular</span>' : '';
+
             const productCard = `
                 <div class="item-card">
+                    ${popularTag}
                     <img src="${product.imagem_link || 'https://via.placeholder.com/150'}" alt="${product.nome}">
                     <h3>${product.nome}</h3>
                     <p>${product.descricao}</p>
@@ -134,7 +138,7 @@ async function fetchAndRenderProducts() {
             `;
             productListDiv.innerHTML += productCard;
         });
-        
+
         addEventListenersToQuantityControls();
         addEventListenersToObservationInputs();
     } catch (error) {
@@ -162,8 +166,12 @@ async function fetchAndRenderCombos() {
 
         allCombos.forEach(combo => {
             const productNames = combo.produtos.map(p => p.nome).join(', ');
+            // Add a "Popular" tag if combo.popular is true
+            const popularTag = combo.popular ? '<span class="popular-tag">Popular</span>' : '';
+
             const comboCard = `
                 <div class="combo-card">
+                    ${popularTag}
                     <img src="${combo.imagem_link || 'https://via.placeholder.com/150'}" alt="${combo.nome}">
                     <h3>${combo.nome}</h3>
                     <p class="combo-products">Includes: ${productNames}</p>

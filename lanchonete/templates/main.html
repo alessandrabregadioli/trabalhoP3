@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cowabunga Burger</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Pacifico&display=swap" rel="stylesheet" />
+
+
+  <!-- Style -->
+  <link rel="stylesheet" href="static/css/styleMain.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="#hero" class="logo-link">
+        <img class="img-logo" src="static/img/hero/burgue.png" alt="Logo" />
+        Cowabunga
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero">Início</a></li>
+      <li><a href="#destaques">Destaques</a></li>
+      <li><a href="#galera">Galera</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+   <a class="btn-primario" href="comanda">QUERO!</a>
+  </nav>
+
+  <div class="retro">
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+      <div class="COWABUNGA">
+        <div class="titulos">
+          <h1 class="top-title">Cowabunga</h1>
+          <h2 class="main-title">Burger</h2>
+        </div>
+        <div class="burgue-img">
+          <img class="logo-burgue" src="static/img/hero/burgue.png" alt="Hambúrguer e Palmeira" />
+        </div>
+        <p class="slogan">Melhor do que pegar uma onda</p>
+        <!--<button class="btn-primario">PEÇA JÁ ➔</button> -->
+
+        <div class="container">
+          <a href="comanda" target="_blank" class="button type--C">
+            <div class="button__line"></div>
+            <div class="button__line"></div>
+            <span class="button__text">PEÇA JÁ ➔</span>
+            <div class="button__drow1"></div>
+            <div class="button__drow2"></div>
+          </a>
+      </div>
+
+      </div>
+    </section>
+
+    <!-- Destaques -->
+    <div class="transicao-gradiente">
+      <section id="destaques" class="destaques">
+        <h1 class="slogan">✨Destaques Populares✨</h1>
+
+        <div class="carrossel-container">
+          <button class="carrossel-btn" id="btn-esquerda">←</button>
+
+          <div class="gallery" id="carrossel-destaques">
+            <!-- Cards serão inseridos via JS -->
+          </div>
+
+          <button class="carrossel-btn" id="btn-direita">→</button>
+        </div>
+      </section>
+
+
+
+  <!-- Galera -->
+  <section id="galera" class="destaques-da-galera">
+    
+     <div class="canvas-wrapper">
+      <canvas id="canvas-gradiente"></canvas>
+    </div>
+
+     <h2 class="slogan">Destaques da Galera</h2>
+    <div class="carrossel">
+      <div class="carrossel-inner">
+        <div class="carrossel-slide">
+          <blockquote>
+            <img class="icone-palmeira" src="static/img/svg/palmeira.svg" alt="Palmeira">
+            "Melhor burguer da costa! Comi 2 e fui surfar!"
+            <span class="autor">Mike S., Surfista Local</span>
+          </blockquote>
+        </div>
+        <div class="carrossel-slide">
+          <blockquote>
+            <img class="icone-palmeira" src="static/img/svg/palmeira.svg" alt="Palmeira">
+            "O cheddar me deu uma visão divina. Incrível!"
+            <span class="autor">Jenny W., Jogadora de Vôlei</span>
+          </blockquote>
+        </div>
+        <div class="carrossel-slide">
+          <blockquote>
+            <img class="icone-palmeira" src="static/img/svg/palmeira.svg" alt="Palmeira">
+            "Voltei no tempo com esse pão australiano!"
+            <span class="autor">Tony H., Skatista</span>
+          </blockquote>
+        </div>
+        <div class="carrossel-slide">
+          <blockquote>
+            <img class="icone-palmeira" src="static/img/svg/palmeira.svg" alt="Palmeira">
+            "O molho secreto? Deve ter sido inventado por um xamã do surf."
+            <span class="autor">João P., Encostado Profissional</span>
+          </blockquote>
+        </div>
+        <div class="carrossel-slide">
+          <blockquote>
+            <img class="icone-palmeira" src="static/img/svg/palmeira.svg" alt="Palmeira">
+            "Esse bacon é mais crocante que manobra de skate na descida da ladeira!"
+            <span class="autor">Luka F., Videomaker e Skatista de Domingo</span>
+          </blockquote>
+        </div>
+        <div class="carrossel-slide">
+          <blockquote>
+            <img class="icone-palmeira" src="static/img/svg/palmeira.svg" alt="Palmeira">
+            "Tava só de rolê, parei pra comer e agora considero esse lugar meu novo lar espiritual."
+            <span class="autor">Zé Loko, Mochileiro da Vida</span>
+          </blockquote>
+        </div>
+        <div class="carrossel-slide">
+          <blockquote>
+            <img class="icone-palmeira" src="static/img/svg/palmeira.svg" alt="Palmeira">
+            "Pedi o combo, levei uma experiência transcendental. E uma batata extra.""
+            <span class="autor">Bruna K., Colecionadora de Cactos</span>
+          </blockquote>
+        </div>
+        <div class="carrossel-slide">
+          <blockquote>
+            <img class="icone-palmeira" src="static/img/svg/palmeira.svg" alt="Palmeira">
+            "O milkshake? Direto do céu. Deve ser feito com nuvem batida e lágrima de unicórnio."
+            <span class="autor">Jéssica H., Barista nas Horas Vagas</span>
+          </blockquote>
+        </div>
+        <div class="carrossel-slide">
+          <blockquote>
+            <img class="icone-palmeira" src="static/img/svg/palmeira.svg" alt="Palmeira">
+            "A vibe aqui é tão boa que até o ketchup me deu um 'boa tarde'."
+            <span class="autor">Rafa M., Mecânico de Patinete</span>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="contato">
+      <div class="contatoTitulos">
+        <h2 class="slogan titulo-contato">NÃO Fale com a Gente</h2>
+        <h3 class="slogan">(Mas se for...)</h3>
+      </div>
+
+      <div class="card-base">
+        <p><strong>WhatsApp</strong><br>(00) 99999-9999</br></p>
+
+        <p><strong>Instagram</strong><br><span>@cowabungaburgers🏖️</span></p>
+
+        <p class="mensagem-extra">"Estamos muito ocupados fazendo os BURGÕES mais cabulosos da história, mas vamos tentar responder!"</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Rodapé -->
+    <footer class="footer-radical">
+      <div class="barras-animadas">
+        <div class="barra barra-teal"></div>
+        <div class="barra barra-laranja"></div>
+        <div class="barra barra-teal"></div>
+        <div class="barra barra-laranja"></div>
+        <div class="barra barra-teal"></div>
+      </div>
+      <p class="marca">© 2025 Cowabunga Burger</p>
+      <p class="slogan-footer">Hambúrgueres totalmente radicais desde 1986</p>
+    </footer>
+
+  <!-- Granim.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/granim/2.0.0/granim.min.js"></script>
+
+  <script src="static/js/main.js"></script>
+
+</body>
+</html>

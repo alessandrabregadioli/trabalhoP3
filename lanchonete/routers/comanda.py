@@ -32,7 +32,6 @@ def criar_comanda(comanda: CreateComanda, session: Session = Depends(get_session
         status_comanda=comanda.status_comanda.value,
         status_pagamento=comanda.status_pagamento.value,
         preco_total=0.0,  # will be updated later
-        pedido_item=[],
     )
     session.add(nova_comanda)
     session.flush()  # needed for nova_comanda.id to be generated

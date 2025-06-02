@@ -34,24 +34,51 @@ async function fetchProducts() {
 
 async function createProduct(event) {
     event.preventDefault();
+    
+    // Coleta dos valores
     const name = document.getElementById('productName').value;
     const description = document.getElementById('productDescription').value;
     const image_link = document.getElementById('productImageLink').value;
     const price = parseFloat(document.getElementById('productPrice').value);
+    const popularBool = document.getElementById('produtoPopular').value === 'true'; // Conversão explícita
     const type = document.getElementById('productType').value;
 
-    const response = await fetch(`${API_URL}/produto/`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome: name, descricao: description, imagem_link: image_link, preco: price, tipo: type })
-    });
-    if (response.ok) {
+    // Verificação de valores (opcional, mas recomendado)
+    if (isNaN(price)) {
+        alert("Preço inválido!");
+        return;
+    }
+
+    const produtoData = {
+        nome: name,
+        descricao: description,
+        imagem_link: image_link,
+        preco: price,
+        tipo: type,
+        popular: popularBool // Já convertido para boolean
+    };
+
+    console.log("Enviando:", produtoData); // Para debug
+
+    try {
+        const response = await fetch(`${API_URL}/produto/`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(produtoData)
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            console.error("Erro completo:", errorData); // Log mais detalhado
+            throw new Error(errorData.detail || "Erro desconhecido");
+        }
+
         alert('Produto criado com sucesso!');
         document.getElementById('createProductForm').reset();
         fetchProducts();
-    } else {
-        const errorData = await response.json();
-        alert(`Erro ao criar produto: ${errorData.detail}`);
+    } catch (error) {
+        console.error("Erro completo:", error);
+        alert(`Erro ao criar produto: ${error.message}`);
     }
 }
 
@@ -67,32 +94,45 @@ async function deleteProduct(id) {
     }
 }
 
-async function editProductPrompt(id, currentName, currentDescription, currentImageLink, currentPrice, currentType) {
+async function editProductPrompt(id, currentName, currentDescription, currentImageLink, currentPrice, currentType, currentPopular) {
+    // Obter novos valores
     const newName = prompt('Novo nome do produto:', currentName);
     if (newName === null) return;
+    
     const newDescription = prompt('Nova descrição:', currentDescription);
     if (newDescription === null) return;
+    
     const newImageLink = prompt('Novo link da imagem:', currentImageLink);
     if (newImageLink === null) return;
+    
     const newPrice = prompt('Novo preço:', currentPrice);
     if (newPrice === null) return;
+    
     const newType = prompt('Novo tipo (bebida, lanche, entrada, sobremesa):', currentType);
     if (newType === null) return;
-
+    
+    // Adicionar prompt para popular (convertendo boolean para string legível)
+    const currentPopularStr = currentPopular ? 'Sim' : 'Não';
+    const newPopular = confirm(`Produto popular? (Atual: ${currentPopularStr})\nClique em OK para Sim ou Cancelar para Não`);
+    
+    // Preparar dados atualizados
     const updatedData = {
         nome: newName,
         descricao: newDescription,
         imagem_link: newImageLink,
         preco: parseFloat(newPrice),
-        tipo: newType
+        tipo: newType,
+        popular: newPopular // Já é boolean (true/false)
     };
 
+    // Enviar requisição
     const response = await fetch(`${API_URL}/produto/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updatedData)
     });
 
+    // Tratar resposta
     if (response.ok) {
         alert('Produto atualizado com sucesso!');
         fetchProducts();
@@ -101,7 +141,6 @@ async function editProductPrompt(id, currentName, currentDescription, currentIma
         alert(`Erro ao atualizar produto: ${errorData.detail}`);
     }
 }
-
 
 // --- Funções de Combo ---
 async function fetchCombos() {
@@ -147,20 +186,49 @@ async function createCombo(event) {
     const image_link = document.getElementById('comboImageLink').value;
     const price = parseFloat(document.getElementById('comboPrice').value);
     const productsInput = document.getElementById('comboProducts').value;
+    const popularBool = document.getElementById('comboPopular').value === 'true'; 
+
     const product_ids = productsInput.split(',').map(id => parseInt(id.trim())).filter(id => !isNaN(id));
 
-    const response = await fetch(`${API_URL}/combos/`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome: name, imagem_link: image_link, preco: price, produtos: product_ids })
-    });
-    if (response.ok) {
+    // Basic validation
+    if (isNaN(price)) {
+        alert("Preço do combo inválido!");
+        return;
+    }
+    if (product_ids.length === 0) {
+        alert("Por favor, insira pelo menos um ID de produto para o combo.");
+        return;
+    }
+
+    const comboData = {
+        nome: name,
+        imagem_link: image_link,
+        preco: price,
+        popular: popularBool, 
+        produtos: product_ids
+    };
+
+    console.log("Enviando Combo:", comboData); // For debugging
+
+    try {
+        const response = await fetch(`${API_URL}/combos/`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(comboData)
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            console.error("Erro completo ao criar combo:", errorData); // More detailed log
+            throw new Error(errorData.detail || "Erro desconhecido ao criar combo");
+        }
+
         alert('Combo criado com sucesso!');
         document.getElementById('createComboForm').reset();
         fetchCombos();
-    } else {
-        const errorData = await response.json();
-        alert(`Erro ao criar combo: ${errorData.detail}`);
+    } catch (error) {
+        console.error("Erro na requisição do combo:", error);
+        alert(`Erro ao criar combo: ${error.message}`);
     }
 }
 

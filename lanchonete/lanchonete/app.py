@@ -26,14 +26,19 @@ app.include_router(codigo_promocional.router)
 templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
+@app.get("/", response_class=HTMLResponse)
+async def get_main(request: Request):
+    return templates.TemplateResponse("main.html", {"request": request})
+
 @app.get("/comanda", response_class=HTMLResponse)
-async def get_form(request: Request):
+async def get_comanda(request: Request):
     return templates.TemplateResponse("comanda.html", {"request": request})
 
 @app.get("/produto-combo", response_class=HTMLResponse)
-async def read_root(request: Request):
+async def read_produto_combo(request: Request):
     return templates.TemplateResponse("cadastro_prod_comb.html", {"request": request})
 
 @app.get("/gerenciamento", response_class=HTMLResponse)
 async def read_gerenciamento(request: Request):
     return templates.TemplateResponse("gerenciamento_comanda.html", {"request": request})
+

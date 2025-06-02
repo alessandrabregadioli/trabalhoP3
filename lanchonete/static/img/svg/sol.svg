@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-miterlimit: 10;
+        stroke-width: 22px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #f97316;
+      }
+
+      .cls-2 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 26px;
+      }
+    </style>
+  </defs>
+  <circle class="cls-1" cx="318.42" cy="239.08" r="54"/>
+  <line class="cls-2" x1="236.92" y1="176.58" x2="211.92" y2="155.42"/>
+  <line class="cls-2" x1="254" y1="322.5" x2="232.85" y2="347.5"/>
+  <line class="cls-2" x1="331.06" y1="345.68" x2="333.78" y2="378.32"/>
+  <line class="cls-2" x1="401.92" y1="305.42" x2="426.92" y2="326.58"/>
+  <line class="cls-2" x1="425.1" y1="226.36" x2="457.74" y2="223.64"/>
+  <line class="cls-2" x1="383.85" y1="154.5" x2="405" y2="129.5"/>
+  <line class="cls-2" x1="308.78" y1="134.32" x2="306.06" y2="101.68"/>
+  <line class="cls-2" x1="214.9" y1="250.45" x2="182.26" y2="253.17"/>
+</svg>

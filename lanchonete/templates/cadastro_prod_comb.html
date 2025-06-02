@@ -29,6 +29,11 @@
                     <option value="entrada">Entrada</option>
                     <option value="sobremesa">Sobremesa</option>
                 </select>
+                <label for="produtoPopular">Popular:</label>
+                <select id="produtoPopular" required>
+                    <option value="true">Sim</option>
+                    <option value="false">Não</option>
+                </select>
                 <button type="submit">Criar Produto</button>
             </form>
 
@@ -52,6 +57,11 @@
                 <div id="selectedProductsDisplay" style="margin-top: 10px; border: 1px solid #ddd; padding: 10px; min-height: 40px; border-radius: 4px; background-color: #f9f9f9;">
                     Nenhum produto selecionado.
                 </div>
+                <label for="comboPopular">Popular:</label>
+                <select id="comboPopular" required>
+                    <option value="true">Sim</option>
+                    <option value="false">Não</option>
+                </select>
                 <input type="hidden" id="comboProductsHidden" name="comboProducts">
 
                 <button type="submit" style="margin-top: 20px;">Criar Combo</button>

@@ -21,7 +21,7 @@ class TipoProduto(str, Enum):
 
 class TipoEntrega(str, Enum):
     local = 'local'
-    levar = 'levar'
+    retirada = 'retirada'
     delivery = 'delivery'
     drive_thru = 'drive-thru'
 

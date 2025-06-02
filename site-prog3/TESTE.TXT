@@ -1,9 +1,9 @@
 criar uma tabela de código promocional - FEITO
-arrumar o icone em carrinho.html e do menu.html
-arrumar o card do produto vegano em menu.html
+arrumar o icone em carrinho.html e do menu.html - FEITO / ALGUÉM RESOLVEU
+arrumar o card do produto vegano em menu.html - FEITO
 adicionar a tabela se é popular - FEITO
-destaques e combo em um só
-destaques da galera (colocar mais cards e colocar em um carrossel)
-arrumar o tamanho dos cards
+destaques e combo em um só - FEITO
+destaques da galera (colocar mais cards e colocar em um carrossel) - FEITO
+arrumar o tamanho dos cards -- O SITE ESTÁ QUASE INUTILIZAVEL
 fazer conexão back-front
 segunda mostrar e fazer o deploy

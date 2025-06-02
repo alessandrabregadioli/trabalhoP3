@@ -69,10 +69,7 @@ class Pedido_Item:
     id_combo: Mapped[int] = mapped_column(ForeignKey('combo.id'), nullable=True)
     quantidade: Mapped[int] = mapped_column(nullable=False)
     observacao: Mapped[str] = mapped_column(nullable=True)
-
-    # Add a relationship back to Comanda for completeness (if needed)
-    comanda_rel: Mapped['Comanda'] = relationship('Comanda', back_populates='pedido_item', lazy='joined')
-
+    comanda_rel: Mapped['Comanda'] = relationship('Comanda', back_populates='pedido_item', lazy='joined', init=False)
 
 @table_registry.mapped_as_dataclass
 class Comanda:
@@ -88,12 +85,11 @@ class Comanda:
     valor_a_pagar: Mapped[float]
     status_pagamento: Mapped[str]
 
-    # --- MOVE RELATIONSHIP FIELDS HERE, BEFORE ANY DEFAULTS ---
-    cliente_rel: Mapped[Optional['Cliente']] = relationship('Cliente', back_populates='comandas', lazy='joined')
-    pedido_item: Mapped[list['Pedido_Item']] = relationship(back_populates='comanda_rel', default_factory=list)
-    # -----------------------------------------------------------
+    cliente_rel: Mapped[Optional['Cliente']] = relationship('Cliente', back_populates='comandas', lazy='joined', init=False)
+    pedido_item: Mapped[list['Pedido_Item']] = relationship(back_populates='comanda_rel', default_factory=list, init=False)
 
-    troco: Mapped[float] = mapped_column(default=0.0) # This field has a default value, so it comes last
+    troco: Mapped[float] = mapped_column(default=0.0)
+
 
 
 @table_registry.mapped_as_dataclass

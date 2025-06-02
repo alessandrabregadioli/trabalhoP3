@@ -1,6 +1,6 @@
 body {
     font-family: 'Open Sans', sans-serif;
-    background: linear-gradient(to right, #87CEEB, #6495ED); /* Sky blue to cornflower blue */
+    background: linear-gradient(to bottom, #fb923c, #f97316, #dc2626);
     color: #333;
     margin: 0;
     padding: 20px;
@@ -106,6 +106,38 @@ h2 {
     border-radius: 5px;
     padding: 5px;
 }
+/* Adicione ao seu arquivo comanda.css */
+
+.product-type-header {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #ff6b00;
+    font-size: 1.5em;
+    border-bottom: 2px solid #ff6b00;
+    padding-bottom: 5px;
+    width: 100%;
+}
+
+.popular-badge {
+    display: inline-block;
+    background-color: #ffcc00;
+    color: #333;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.item-card {
+    position: relative;
+}
+
+.item-card .popular-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
 label {
     display: block;
     margin-bottom: 8px;
@@ -162,4 +194,62 @@ button.submit-order:hover {
     font-size: 1.2em;
     color: #4682B4;
     margin-top: 20px;
+}
+.scan-lines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  z-index: 50;
+  background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, black 2px, black 4px);
+  background-size: 100% 4px;
+}
+.popular-tag {
+    background-color: #ffc107; /* A nice yellow for "Popular" */
+    color: #333;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    font-weight: bold;
+    position: absolute; /* Or adjust positioning as needed */
+    top: 10px;
+    left: 10px;
+    z-index: 10; /* Ensure it's above other elements */
+}
+
+/* Adjust item-card and combo-card for positioning if using absolute on the tag */
+.item-card,
+.combo-card {
+    position: relative; /* Essential for positioning the absolute tag */
+    /* Other existing styles for your cards */
+}
+/* Add this to your static/css/comanda.css file */
+
+.back-to-menu {
+    display: block; /* Makes the button take full width if desired */
+    width: 100%;
+    padding: 12px 20px;
+    margin-top: 15px; /* Spacing from the section above */
+    margin-bottom: 10px; /* Spacing from the submit button */
+    background-color: #007bff; /* A blue color, adjust as needed */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    text-decoration: none; /* In case it's an anchor tag in other contexts */
+}
+
+.back-to-menu:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* You might want to adjust the margin-top of .submit-order if necessary */
+.submit-order {
+    margin-top: 10px; /* Example adjustment */
 }
